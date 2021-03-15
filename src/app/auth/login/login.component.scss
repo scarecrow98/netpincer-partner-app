@@ -1,0 +1,76 @@
+@import '../../../variables.scss';
+
+.login-component {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    background: linear-gradient(160deg, $primary 0%, $secondary 100%);
+
+    .login-form {
+        border-radius: 10px;
+        width: 400px;
+
+        .title {
+            text-align: center;
+            padding-bottom: 40px;
+            color: #fff;
+        }
+
+        .error {
+            color: red;
+            font-weight: bold;
+            text-align: center;
+            padding-bottom: 30px;
+        }
+
+        .form-row {
+            display: flex;
+            align-items: center;
+            margin-bottom: 30px;
+            border-bottom: 2px solid #fff;
+            transition: all .3s ease-in-out;
+
+
+            i {
+                color: #fff;
+                display: block;
+                margin-right: 15px;
+                font-size: 30px;
+            }
+
+            .input {
+                width: 100%;
+                padding: 8px 12px;
+                font-weight: bold;
+                font-size: 16px;
+                border: 0px;
+                background-color: transparent;
+                color: #fff;
+    
+                &::placeholder {
+                    color: #fff;
+                }
+            }
+
+            &:focus-within {
+                border-bottom: 2px solid $secondary;
+            }
+        }
+
+        .btn {
+            width: 100%;
+            border: 0px;
+            padding: 12px 0px;
+            font-size: 16px;
+            color: #fff;
+            background-color: $secondary;
+            font-weight: bold;
+            cursor: pointer;
+    
+            &:hover {
+                background-color: $primary;
+            }
+        }
+    }
+}

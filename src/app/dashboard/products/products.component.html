@@ -1,0 +1,41 @@
+<div class="products-component" [class.editor-closed]="!currentProductId">
+    <div class="products-content">
+
+        <header class="products-header">
+            <div class="filter-inputs">
+                <input type="text" placeholder="keresés termékre..."
+                    (input)="filterTextChanged()" class="c-input" [(ngModel)]="filterText">
+
+                <select name="" id="" (change)="productCategoryFilterChanged()" class="c-input" [(ngModel)]="filterCategoryId">
+                    <option [value]="null">Szűrés kategória alapján</option>
+                    <option *ngFor="let item of productCategories" [value]="item.id">{{ item.name }}</option>
+                </select>
+
+                <span class="clear-filters" (click)="clearFilters()">Szűrők törlése</span>
+            </div>
+
+            <action-button (click)="initEditor()" class="button" iconClass="ion-android-add-circle">
+                Új termék felvétele
+            </action-button>
+        </header>
+
+        <div class="products-list">
+            <div class="product-box" *ngFor="let item of productsList" (click)="initEditor(item.id)">
+                <div class="image" [style.background-image]="'url(' + item.image + ')' | sanitize">
+                    <i class="ion-compose"></i>
+                </div>
+                <div class="content">
+                    <h3>{{ item.name }}</h3>
+                    <span>Ár: {{ item.unit_price }} Ft</span>
+                    <span>Menü: {{ item.category.name }}</span>
+                </div>
+                <div class="badge" *ngIf="item.discount">{{ item.discount }}%</div>
+            </div>
+        </div>
+
+    </div>
+
+    <aside *ngIf="currentProductId">
+        <app-product-editor [productId]="currentProductId" (productSaved)="productSaved()"></app-product-editor>
+    </aside>
+</div>

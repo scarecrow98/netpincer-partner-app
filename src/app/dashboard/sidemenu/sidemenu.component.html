@@ -1,0 +1,36 @@
+<div class="sidemenu-component">
+    <h1 class="partner-title">Kerék csárda</h1>
+
+    <div class="menu">
+        <div class="menu-item" routerLink="/dashboard/products"
+            routerLinkActive="active">
+            <i class="ion-ios-pricetag"></i>
+            <span>Termékek</span>
+        </div>
+
+        <div class="menu-item">
+            <i class="ion-android-list"></i>
+            <span>Rendelések</span>
+        </div>
+
+        <div class="menu-item">
+            <i class="ion-person-stalker"></i>
+            <span>Futárok</span>
+        </div>
+
+        <div class="menu-item">
+            <i class="ion-stats-bars"></i>
+            <span>Kimutatások</span>
+        </div>
+
+        <div class="menu-item">
+            <i class="ion-compose"></i>
+            <span>Étterem adatai</span>
+        </div>
+
+        <div class="menu-item" (click)="logout()">
+            <i class="ion-log-out"></i>
+            <span>Kijelentkezés</span>
+        </div>
+    </div>
+</div>

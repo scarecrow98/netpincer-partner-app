@@ -1,0 +1,129 @@
+<div class="registration-component">
+
+    <div class="reg-form" #regForm>
+        <h1 class="title">Üzlet regisztrálása</h1>
+
+        <pre class="error" *ngIf="errorMessage">{{ errorMessage }}</pre>
+ 
+        <section class="section">
+            <div class="section-title">
+                <div class="section-title-icon"><i class="ion-ios-information"></i></div>
+                Általános információk
+            </div>
+            <div class="section-content">
+
+                <div class="input-row">
+                    <label>Üzlet megnevezése:</label>
+                    <input type="text" class="input" [(ngModel)]="registrationModel.name">
+                </div>
+
+                <div class="input-row">
+                    <label>Üzlet leírása:</label>
+                    <textarea class="input" [(ngModel)]="registrationModel.description"></textarea>
+                </div>
+
+                <div class="input-row">
+                    <label>Üzlet jellege:</label>
+                    <select class="select" [(ngModel)]="registrationModel.partner_type_id">
+                        <option *ngFor="let type of partnerTypes" [value]="type.id">{{ type.name }}</option>
+                    </select>
+                </div>
+
+                
+                <div class="input-row">
+                    <label>Üzlet színstílusa:</label>
+                    <input type="color" [(ngModel)]="registrationModel.color_style">
+                </div>
+            </div>
+        </section>
+
+        <section class="section">
+            <div class="section-title">
+                <div class="section-title-icon"><i class="ion-home"></i></div>
+                Kiegészítő információk
+            </div>
+            <div class="section-content">
+
+                <div class="input-row">
+                    <label>Város:</label>
+                    <input type="text" class="input" [(ngModel)]="registrationModel.city">
+                </div>
+
+                <div class="input-row">
+                    <label>Irányítószám</label>
+                    <input type="text" class="input" [(ngModel)]="registrationModel.post_code">
+                </div>
+
+                <div class="input-row">
+                    <label>Utca/házszám:</label>
+                    <input type="text" class="input" [(ngModel)]="registrationModel.street">
+                </div>
+
+                <div class="input-row">
+                    <label>Kiszállítási díj (Ft):</label>
+                    <input type="number" class="input" min="0" [(ngModel)]="registrationModel.delivery_fee">
+                </div>
+
+                <div class="input-row">
+                    <label>Futár osztaléka (százalékban):</label>
+                    <input type="text" class="input" min="1" max="100" [(ngModel)]="registrationModel.courier_share_percent">
+                </div>
+
+                <div class="input-row">
+                    <label>Üzletkép</label>
+                    <input type="file" (change)="partnerImageInputChanged($event)">
+                </div>
+            </div>
+        </section>
+
+        <section class="section">
+            <div class="section-title">
+                <div class="section-title-icon"><i class="ion-android-person"></i></div>
+                Belépési adatok
+            </div>
+            <div class="section-content">
+
+                <div class="input-row">
+                    <label>Email cím:</label>
+                    <input type="email" class="input" [(ngModel)]="registrationModel.email">
+                </div>
+
+                <div class="input-row">
+                    <label>Jelszó</label>
+                    <input type="password" class="input" [(ngModel)]="registrationModel.password">
+                </div>
+
+                <div class="input-row">
+                    <label>Jelszó újra</label>
+                    <input type="password" class="input" [(ngModel)]="registrationModel.password_again">
+                </div>
+            </div>
+        </section>
+
+        <section class="section">
+            <div class="section-title">
+                <div class="section-title-icon"><i class="ion-ios-list"></i></div>
+                Nyitvatartási idő
+            </div>
+            <div class="section-content">
+
+                <div class="input-row" *ngFor="let openTime of registrationModel.open_times">
+                    <label>{{ openTime.display_day }}</label>
+                    <div class="input-group">
+                        zárva <input type="checkbox" [(ngModel)]="openTime.closed">
+                        <input type="time" class="input" value="11:00" [(ngModel)]="openTime.from"
+                            *ngIf="!openTime.closed">
+                        <input type="time" class="input" value="22:00" [(ngModel)]="openTime.to"
+                            *ngIf="!openTime.closed">
+                        
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <button class="btn" (click)="submit()">Regisztráció</button>
+
+    </div>
+
+</div>

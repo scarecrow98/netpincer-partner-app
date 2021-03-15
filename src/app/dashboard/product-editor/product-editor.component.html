@@ -1,0 +1,75 @@
+<div class="product-editor" *ngIf="product">
+    <h2 class="title">
+        Termék {{ _productId > 0 ? ' szerkesztése' : 'felvétele' }}
+    </h2>
+
+    <section class="editor-section">
+        <h3 class="section-title">Termék kategória</h3>
+
+        <div class="row">
+            <input type="text" placeholder="Új kategória felvétele" class="c-input" [(ngModel)]="newCategoryName">
+            <action-button (click)="saveNewCategory()" iconClass="ion-plus-round">
+                Felvétel
+            </action-button>
+        </div>
+
+        <div class="row">
+            <select class="c-input" placeholder="Termék kategóriája" [(ngModel)]="product.product_category_id">
+                <option *ngFor="let category of productCategories" [value]="category.id">{{ category.name }}</option>
+            </select>
+        </div>
+    </section>
+
+    <section class="editor-section">
+        <h3 class="section-title">Általános információk</h3>
+
+        <div class="row" >
+            <input type="text" placeholder="Termék neve" class="c-input" [(ngModel)]="product.name">
+        </div>
+
+        <div class="row">
+            <textarea  placeholder="Termék leírása" class="c-input" [(ngModel)]="product.description"></textarea>
+        </div>
+
+        <div class="row">
+            <input type="number" placeholder="Termék ára" class="c-input" [(ngModel)]="product.unit_price">
+        </div>
+
+        <div class="row">
+            <select placeholder="Allergének" multiple class="c-input" [(ngModel)]="product.product_allergen_ids">
+                <option *ngFor="let allergen of productAllergens" [value]="allergen.id">{{ allergen.name }}</option>
+            </select>
+        </div>
+
+        <div class="row">
+            <input type="number" placeholder="Leértékelés %" class="c-input" [(ngModel)]="product.discount">
+        </div>
+
+        <div class="row">
+            <!-- <action-button (click)="productImageInput.click()" iconClass="ion-android-upload">
+                Termékfotó feltöltése
+            </action-button>
+            <input type="file" style="display: none" #productImageInput (change)="productImageInputChanged($event)"> -->
+            <file-uploader (filesSelected)="productImageSelected($event)">Termékfotó feltöltése</file-uploader>
+        </div>
+
+        <action-button iconClass="ion-android-checkbox-outline" (click)="saveProduct()">
+            mentés
+        </action-button>
+    </section>
+
+    <!-- <section class="editor-section">
+        <h3 class="section-title">Időszakos beállítások</h3>
+
+        <div class="row">
+            <input type="number" placeholder="Leértékelés %" class="input">
+            <input type="number" placeholder="Leértékelés %" class="input">
+            <input type="number" placeholder="Leértékelés %" class="input">
+            <input type="number" placeholder="Leértékelés %" class="input">
+            <input type="number" placeholder="Leértékelés %" class="input">
+            <input type="number" placeholder="Leértékelés %" class="input">
+            <input type="number" placeholder="Leértékelés %" class="input">
+        </div>
+    </section> -->
+
+</div>

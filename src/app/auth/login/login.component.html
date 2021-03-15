@@ -1,0 +1,21 @@
+<div class="login-component">
+
+    <div class="login-form">
+        <h1 class="title">Belépés üzleti felületre</h1>
+
+        <p class="error" *ngIf="error">{{ error }}</p>
+
+        <div class="form-row">
+            <i class="ion-android-person"></i>
+            <input type="text" class="input" placeholder="email" [(ngModel)]="email">
+        </div>
+
+        <div class="form-row">
+            <i class="ion-android-lock"></i>
+            <input type="password" class="input" placeholder="jelszó" [(ngModel)]="password">
+        </div>
+
+        <button class="btn" (click)="submit()">Belépés</button>
+    </div>
+
+</div>

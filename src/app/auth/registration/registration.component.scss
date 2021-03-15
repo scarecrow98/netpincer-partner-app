@@ -1,0 +1,106 @@
+@import '../../../variables.scss';
+
+.registration-component {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    background: linear-gradient(160deg, $primary 0%, $secondary 100%);
+
+    .reg-form {
+        padding: 30px;
+        box-shadow: 6px 6px 30px rgba(0, 0, 0, 0.5);
+        border-radius: 6px;
+        border: solid 2px $primary;
+        width: 600px;
+        background: #fff;
+        max-height: 700px;
+        overflow-y: scroll;
+
+        h1.title {
+            text-align: center;
+            margin: 0px 30px;
+            border-bottom: 2px solid $primary;
+            padding-bottom: 20px;
+        }
+
+        .error {
+            color: red;
+            text-align: center;
+            font-weight: bold;
+            padding-top: 30px;
+        }
+
+        .section {
+            margin-top: 65px;
+
+            .section-title {
+                background-color: $primary;
+                text-align: center;
+                color: #fff;
+                text-shadow: 0px 2px 3px rgba(0,0,0, 0.1);
+                font-weight: bold;
+                padding: 10px 0px;
+                position: relative;
+                z-index: 5;
+
+                .section-title-icon {
+                    position: absolute;
+                    width: 50px;
+                    height: 25px;
+                    background-color: $primary;
+                    border-radius: 50px 50px 0px 0px;
+                    z-index: 4;
+                    left: calc(50% - 20px);
+                    top: -25px;
+                    padding-top: 5px;
+                    font-size: 20px;
+                }
+            }
+        }
+    }
+
+    .input-row {
+        display: flex;
+        padding: 8px 20px;
+
+        label {
+            font-weight: bold;
+            font-size: 16px;
+            display: block;
+            margin-right: 20px;
+            width: 160px;
+        }
+
+        .input, .select {
+            border: none;
+            border-bottom: 2px solid #d9d9d9;
+            padding: 5px 10px;
+            flex: 1;
+        }
+
+        .input:focus, .select:focus {
+            border-bottom: 2px solid $primary;
+        }
+
+        .input-group .input:first-child {
+            margin-right: 20px;
+        }
+    }
+
+    .btn {
+        width: 100%;
+        border: 0px;
+        margin-top: 50px;
+        padding: 12px 0px;
+        font-size: 16px;
+        color: #fff;
+        background-color: $primary;
+        font-weight: bold;
+        cursor: pointer;
+
+        &:hover {
+            background-color: $primary-darker;
+        }
+    }
+}
