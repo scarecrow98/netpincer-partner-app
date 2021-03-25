@@ -1,5 +1,6 @@
 import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
 import { PartnerRegistration } from '../../models/partner-registration';
 import { AuthService } from '../../services/auth.service';
 
@@ -16,7 +17,11 @@ export class RegistrationComponent implements OnInit {
   errorMessage = null;
   @ViewChild('regForm') regForm: ElementRef;
 
-  constructor(private authService: AuthService, private router: Router) { }
+  constructor(
+    private authService: AuthService,
+    private router: Router,
+    private toaster: ToastrService
+    ) { }
 
   ngOnInit(): void {
     this.authService.getPartnerTypes().subscribe(resp => {
@@ -33,6 +38,7 @@ export class RegistrationComponent implements OnInit {
         return;
       }
 
+      this.toaster.success('You have registered your account successfully.');
       this.router.navigate(['/auth/login']);
 
     });

@@ -1,0 +1,19 @@
+@import '../../../variables.scss';
+
+.orders-component {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+    padding: 20px;
+    height: 100vh;
+
+    .order-details-container {
+        background-color: #fff;
+        border-radius: 6px;
+    }
+
+    .order-list-container {
+        background-color: #fff;
+        border-radius: 6px;
+    }
+}

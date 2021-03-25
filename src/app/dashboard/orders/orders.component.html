@@ -1,0 +1,10 @@
+<div class="orders-component">
+
+    <div class="order-list-container">
+        <order-list [orders]="orders" (onOrderClicked)="selectedOrder = $event"></order-list>
+    </div>
+    
+    <div class="order-details-container">
+        <order-details [order]="selectedOrder"></order-details>
+    </div>
+</div>

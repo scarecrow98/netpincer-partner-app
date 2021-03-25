@@ -9,6 +9,9 @@ import { UrlSanitizer } from '../pipes/url-sanitizer';
 import { FormsModule } from '@angular/forms';
 import { SharedModule } from '../shared/shared.module';
 import { DashboardComponent } from './dashboard.component';
+import { OrdersComponent } from './orders/orders.component';
+import { OrderListComponent } from './orders/order-list/order-list.component';
+import { OrderDetailsComponent } from './orders/order-details/order-details.component';
 
 
 @NgModule({
@@ -17,7 +20,10 @@ import { DashboardComponent } from './dashboard.component';
     SidemenuComponent,
     ProductsComponent,
     ProductEditorComponent,
-    UrlSanitizer
+    UrlSanitizer,
+    OrdersComponent,
+    OrderListComponent,
+    OrderDetailsComponent
   ],
   imports: [
     CommonModule,

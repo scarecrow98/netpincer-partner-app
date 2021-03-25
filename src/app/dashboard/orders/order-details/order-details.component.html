@@ -1,0 +1,22 @@
+<div class="order-details-component" *ngIf="order">
+    <div class="header">
+
+    </div>
+
+    <div class="order-items">
+        <div class="order-item" *ngFor="let item of order.items">
+            <div class="product-name">{{ item.product_name }}</div>
+            <div class="quantity">{{ item.quantity }} db</div>
+            <div class="subtotal">
+                {{ item.subtotal }} Ft
+                <span>(egységár: {{ item.unit_price }})</span>
+            </div>
+        </div>
+    </div>
+
+    <div class="order-summary">
+        <h2>
+            Rendelés össszesen: {{ order.total }} Ft
+        </h2>
+    </div>
+</div>
